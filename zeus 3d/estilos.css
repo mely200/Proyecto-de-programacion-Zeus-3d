@@ -1,0 +1,261 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+
+	background: #FCECFF;
+	font-family: Arial, sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color:#fff;
+}
+
+.contenedor {
+	margin: auto;
+	width: 90%;
+	max-width: 1200px;
+}
+
+/* menu */
+.menu {
+	background: #000000;
+	padding: 5px 0;
+	margin-bottom: 20px;
+}
+
+
+.menu .contenedor-enlaces-nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.menu .productos {
+	color: #fff;
+	padding: 7px;
+	border-radius: 3px;
+	display: flex;
+	align-items: flex-end;
+	border: 1px solid transparent;
+	font-size: 14px;
+	cursor: default;
+}
+
+.menu .productos i {
+	margin-left: 20px;
+	position: relative;
+	bottom: 3px;
+}
+
+.menu .productos:hover {
+	border: 1px solid rgba(255,255,255, .4);
+}
+
+.menu .productos span {
+	
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.menu .contenedor-enlaces-nav .enlaces a {
+	color: #ccc;
+	border: 1px solid transparent;
+	padding: 7px;
+	border-radius: 3px;
+	font-size: 14px;
+}
+
+.menu .contenedor-enlaces-nav .enlaces a:hover {
+	border: 1px solid rgba(255,255,255,.4);
+}
+
+/* ------------------------- */
+/* menu desplegable*/
+/* ------------------------- */
+.contenedor-grid {
+	position: relative;
+}
+
+.grid {
+	width: 100%;
+	display: none;
+	position: absolute;
+	top: 5px;
+	z-index: 1000;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: 1fr;
+	grid-template-areas: "categorias subcategorias subcategorias ";
+}
+
+.grid.activo {
+	display: grid;
+}
+
+.grid::before {
+	content: "";
+	display: block;
+	background: transparent;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid #fff;
+	position: absolute;
+	top: -5px;
+	left: 65px;
+}
+
+.grid > div {
+	background: #fff;
+	box-shadow: 0px 3px 6px rgba(0,0,0,.10);
+}
+
+/* ------------------------- */
+/* Categorias */
+/* ------------------------- */
+
+
+
+.grid .categorias {
+	grid-area: categorias;
+	padding-top: 10px;
+	min-height: 300px;
+	overflow: auto;
+}
+
+.grid .categorias .subtitulo {
+	display: none;
+}
+
+.grid .categorias a {
+	color: #000;
+	font-size: 14px;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 20px;
+}
+
+.grid .categorias a i {
+	display: none;
+}
+
+.grid .categorias a:hover {
+	color: #E47911;
+	font-weight: bold;
+}
+
+.grid .categorias a:hover i {
+	display: inline-block;
+}
+
+/* ------------------------- */
+/* Subcategorias */
+/* ------------------------- */
+
+.grid .contenedor-subcategorias {
+	grid-area: subcategorias;
+}
+
+.grid .subcategoria {
+	display: none;
+	grid-template-columns: 1fr 1fr ;
+	grid-template-rows: 1fr;
+	height: 100%;
+}
+
+.grid .subcategoria.activo {
+	display: grid;
+}
+
+.grid .subcategoria img {
+	width: 100%;
+	vertical-align: top;
+	height: 100%;
+	object-fit: cover;
+}
+
+.grid .enlaces-subcategoria {
+	padding-top: 10px;
+	height: 100%;
+	max-height: 300px;
+	overflow: auto;
+}
+
+.grid .enlaces-subcategoria a {
+	color: #000;
+	display: block;
+	font-size: 14px;
+	padding: 10px 20px;
+}
+
+.grid .enlaces-subcategoria a:hover {
+	color: #E47911;
+}
+
+.grid .subtitulo {
+	font-size: 18px;
+	font-weight: normal;
+	color: #E47911;
+	padding: 10px 20px;
+}
+
+.grid .banner-subcategoria a {
+	width: 50%;
+	height: 50%;
+}
+
+
+/* PRODUCTOS ============*/
+
+.lista-productos{
+	width: 82%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+.lista-productos .item-productos{
+	width: 22%;
+	margin-left: 3%;
+	margin-bottom: 25px;
+	box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.22);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-self: flex-start;
+
+	transition: all .4s;
+}
+
+.lista-productos .item-productos img{
+	width: 100%;
+}
+
+.lista-productos .item-productos a{
+	display: block;
+	width: 100%;
+	padding: 8px 0;
+	background: #2D3E50;
+
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+}
+
+/* ------------------------- */
+/* Mediaqueies */
+/* ------------------------- */
+@media screen and (max-width: 1000px) {
+	.menu .contenedor-enlaces-nav {
+		padding: 0 10px;
+	}
+
+	.menu .contenedor {
+		width: 100%;
+	}
+}
+
